@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Controller\\BookCategoryControllerTest::testCategories":8},"times":{"Controller\\BookCategoryControllerTest::testCategories":0.255,"Service\\BookCategoryServiceTest::testGetCategories":0.013}}
