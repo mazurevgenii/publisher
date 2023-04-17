@@ -12,7 +12,6 @@ class BookCategory
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-//    #[OA\Property(description: 'The unique identifier of the book.')]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
