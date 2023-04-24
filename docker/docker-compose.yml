@@ -16,6 +16,7 @@ services:
       - ./../:/var/www/
     depends_on:
       - postgres-publisher
+      - postgres-publisher-test
     networks:
       - app-network
 
@@ -29,6 +30,7 @@ services:
       - ..:/var/www:rw
     depends_on:
       - php-fpm-publisher
+      - postgres-publisher-test
     networks:
       - app-network
 
@@ -42,8 +44,23 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST_AUTH_METHOD: trust
     volumes:
       - db_data:/var/lib/postgresql/data:rw
+    networks:
+      - app-network
+
+  postgres-publisher-test:
+    container_name: postgres-publisher-test
+    build:
+      context: ./postgres
+    ports:
+      - ${POSTGRES_PORT_TEST}:5432
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB_TEST}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_HOST_AUTH_METHOD: trust
     networks:
       - app-network
 
@@ -52,3 +69,4 @@ volumes:
 
 networks:
   app-network:
+

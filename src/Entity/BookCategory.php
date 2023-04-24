@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\BookCategoryRepository;
 use Doctrine\ORM\Mapping as ORM;
-use OpenApi\Attributes as OA;
 
 #[ORM\Entity(repositoryClass: BookCategoryRepository::class)]
 class BookCategory

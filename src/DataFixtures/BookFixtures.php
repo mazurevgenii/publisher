@@ -2,7 +2,6 @@
 
 namespace App\DataFixtures;
 
-use _PHPStan_cd1adfd71\Nette\Utils\DateTime;
 use App\Entity\Book;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -18,7 +17,7 @@ class BookFixtures extends Fixture implements DependentFixtureInterface
 
         $book = (new Book())
             ->setTitle('RxJava for Android Devs')
-            ->setPublicationDate(new DateTime('2019-04-01'))
+            ->setPublicationDate(new \DateTime('2019-04-01'))
             ->setMeap(false)
             ->setAuthors(['Timo Tuominen'])
             ->setSlug('rxjava-for-android-devs')

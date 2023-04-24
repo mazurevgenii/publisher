@@ -43,6 +43,7 @@ app_bash:
 php:
 	${DOCKER_COMPOSE} exec -u www-data php-fpm-publisher bash
 test:
+	${DOCKER_COMPOSE} exec -u www-data php-fpm-publisher bin/console doctrine:migrations:migrate --no-interaction --env=test
 	${DOCKER_COMPOSE} exec -u www-data php-fpm-publisher bin/phpunit
 jwt:
 	${DOCKER_COMPOSE} exec -u www-data php-fpm-publisher bin/console lexik:jwt:generate-keypair
