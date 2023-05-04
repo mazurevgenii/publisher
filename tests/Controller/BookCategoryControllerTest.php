@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace App\Tests\Controller;
 
 use App\Entity\BookCategory;
 use App\Tests\AbstractControllerTest;
